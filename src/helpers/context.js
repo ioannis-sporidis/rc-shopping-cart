@@ -5,7 +5,7 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [cart, setCart] = useState(cartItems);
-
+  console.log(cart);
   return <AppContext.Provider value={{ cart }}>{children}</AppContext.Provider>;
 };
 
