@@ -1,5 +1,8 @@
 const reducer = (state, action) => {
-  return state;
+  if (action.type === 'CLEAR_CART') {
+    return { ...state, cart: [] };
+  }
+  throw new Error('no matching action type');
 };
 
 export default reducer;

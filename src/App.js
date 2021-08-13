@@ -1,14 +1,16 @@
-import Navbar from './components/Navbar';
-import CartContainer from './components/CartContainer';
+import React from 'react';
 import { useGlobalContext } from './helpers/context';
 
-const App = () => {
-  const { loading } = useGlobalContext();
+// components
+import Navbar from './components/Navbar';
+import CartContainer from './components/CartContainer';
 
+function App() {
+  const { loading } = useGlobalContext();
   if (loading) {
     return (
       <div className='loading'>
-        <hi>loading...</hi>
+        <h1>Loading...</h1>
       </div>
     );
   }
@@ -18,6 +20,6 @@ const App = () => {
       <CartContainer />
     </main>
   );
-};
+}
 
 export default App;
