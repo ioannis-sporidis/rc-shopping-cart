@@ -6,24 +6,20 @@ const reducer = (state, action) => {
     let newCartItems = state.cart.filter(item => item.id !== action.payload);
     return { ...state, cart: newCartItems };
   }
-  if (action.type === 'INCREASE') {
-    let tempCart = state.cart.map(item => {
-      if (item.id === action.payload) {
-        return { ...item, amount: item.amount + 1 };
-      }
-      return item;
-    });
-    return { ...state, cart: tempCart };
-  }
-  if (action.type === 'DECREASE') {
+  if (action.type === 'TOGGLE_AMOUNT') {
     let tempCart = state.cart
-      .map(item => {
-        if (item.id === action.payload) {
-          return { ...item, amount: item.amount - 1 };
+      .map(cartItem => {
+        if (cartItem.id === action.payload.id) {
+          if (action.payload.type === 'increase') {
+            return { ...cartItem, amount: cartItem.amount + 1 };
+          }
+          if (action.payload.type === 'decrease') {
+            return { ...cartItem, amount: cartItem.amount - 1 };
+          }
         }
-        return item;
+        return cartItem;
       })
-      .filter(item => item.amount !== 0);
+      .filter(cartItem => cartItem.amount !== 0);
     return { ...state, cart: tempCart };
   }
   if (action.type === 'GET_TOTALS') {
