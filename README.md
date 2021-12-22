@@ -1,6 +1,6 @@
 # Shopping Cart
 
-Click [here](https://ioannis-sporidis.github.io/rc-pagination/) to check out the component.
+Click [here](https://ioannis-sporidis.github.io/rc-shopping-cart/) to check out the component.
 
 ## Dependencies
 
